@@ -1,0 +1,568 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruixu Geng's Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: #444;
+        }
+
+        .intro a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .intro a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .research-areas {
+            margin-bottom: 25px;
+        }
+
+        .research-areas p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .research-areas strong {
+            color: #222;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .education-item:last-child, .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .item-date {
+            color: #666;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .item-details {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .publication {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .pub-image {
+            flex-shrink: 0;
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .pub-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            display: block;
+            background: transparent;
+        }
+        .pub-image .pub-year {
+            position: absolute;
+            right: 8px;
+            bottom: 6px;
+            color: #fff;
+            font-size: 1em;
+            font-weight: 600;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+            pointer-events: none;
+        }
+
+        .pub-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pub-venue {
+            font-weight: 600;
+            color: #0066cc;
+            font-size: 0.9em;
+            margin-bottom: 2px;
+        }
+
+        .pub-title {
+            color: #222;
+            margin: 2px 0 5px 0;
+            font-weight: 500;
+        }
+
+        .pub-title a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .pub-title a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .pub-authors {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .pub-authors strong {
+            color: #222;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 10px 20px;
+            align-items: start;
+        }
+
+        .award-year {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .award-name {
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+            min-width: 70px;
+        }
+
+        .news-content {
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .news-content a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .news-content a:hover {
+            text-decoration: underline;
+        }
+
+        .show-all-link {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .show-all-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+
+        .show-all-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .publication {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pub-image {
+                width: 100%;
+                height: 50px;
+            }
+            .profile-photo {
+                position: static;
+                margin: 0 auto 20px auto;
+                display: block;
+            }
+        }
+
+        .profile-photo {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pub-image-whitebg {
+            background: #fff !important;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ruixu Geng</h1>
+        <div class="subtitle">PhD Candidate • University of Science and Technology of China</div>
+        
+        <div class="contact-links">
+            <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">Google Scholar</a>
+            <a href="https://github.com/ruixv" target="_blank">GitHub</a>
+            <a href="mailto:gengruixu@mail.ustc.edu.cn">Email</a>
+        </div>
+
+        <div class="intro">
+            Hi! I am a final-year PhD student at University of Science and Technology of China, advised by <a href="https://scholar.google.com/citations?user=MVOCn1AAAAAJ&hl=en" target="_blank">Prof. Yan Chen</a>. Previously, I received my Master's and Bachelor's degrees in Communication Engineering from University of Electronic Science and Technology of China.
+        </div>
+        <div class="profile-photo">
+            <img src="ruixu.jfif" alt="Profile Photo">
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Research</h2>
+        <div class="research-areas">
+            <p>My research focuses on <strong>computational imaging</strong>, <strong>mmWave radar imaging</strong>, and <strong>wireless sensing</strong>. My recent works explore:</p>
+            <p>• mmWave radar imaging / mmWave radar point cloud reconstruction (<strong>TIP'24</strong>, <strong>TMC'24</strong>, <strong>CE'24</strong>, <strong>ICASSP'24</strong>)</p>
+            <p>• Advancing non-line-of-sight imaging techniques (<strong>TIP'22</strong>, <strong>TIP'25</strong>, <strong>ICASSP'25</strong>, <strong>ICME'25</strong>)</p>
+            <p>• Developing security measures for wireless sensing systems (<strong>TIFS'25</strong>)</p>
+            <p>• Applying wireless sensing to other applications, e.g., biomedical sensing and human-centric perception (<strong>Nature Communications'25</strong>, <strong>ICLR'25</strong>, <strong>WCSP'25</strong>)</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>News</h2>
+        <div class="news-item">
+            <div class="news-date">05/2025:</div>
+            <div class="news-content">One paper on mmWave radar-based atrial fibrillation detection accepted to <strong>Nature Communications</strong>.</div>
+        </div>
+        <div class="news-item">
+            <div class="news-date">05/2025:</div>
+            <div class="news-content">One paper on adversarial attacks against mmWave radar imaging accepted to <strong>IEEE TIFS</strong>.</div>
+        </div>
+        <div class="news-item">
+            <div class="news-date">03/2025:</div>
+            <div class="news-content">A paper on passive non-line-of-sight imaging accepted to <strong>ICME</strong>.</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Selected Publications</h2>
+        
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tifs.png" alt="TIFS 2025">
+                <!-- <span class="pub-year">2025</span> -->
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TIFS'25]</div>
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/11007126/" target="_blank">
+                        Attacking mmWave Imaging with Neural Meta-Material Rendering
+                    </a>
+                </div>
+                <div class="pub-authors"><strong>R. Geng</strong>, D. Zhang, Y. Li, Z. Wu, J. Li, Q. Chen, Y. Hu, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="naturecomm.png" alt="Nature Comm. 2025">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[Nature Comm.'25]</div>
+                <div class="pub-title"><a href="https://www.nature.com/articles/s41467-025-59482-y" target="_blank">Atrial Fibrillation Detection via Contactless Radio Monitoring and Knowledge Transfer</a></div>
+                <div class="pub-authors">Y. Yuan*, J. Chen*, D. Zhang, <strong>R. Geng</strong>, H. Gong, G. Xu, Y. Pu, Z. Lu, Y. Hu, D. Zhang, L. Ma, Q. Sun, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tip2025.png" alt="TIP 2025">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TIP'25]</div>
+                <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10811818" target="_blank">Passive Non-Line-of-Sight Imaging with Light Transport Modulation</a></div>
+                <div class="pub-authors">J. Zhang, <strong>R. Geng</strong>, X. Du, Y. Chen, H. Li, Y. Hu</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="iclr2025.png" alt="ICLR 2025">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[ICLR'25]</div>
+                <div class="pub-title"><a href="https://openreview.net/pdf?id=lG9fjBLb6d" target="_blank">RFMamba: Frequency-Aware State Space Model for RF-Based Human-Centric Perception</a></div>
+                <div class="pub-authors">R. Zhang, <strong>R. Geng</strong>, Y. Li, R. Song, H. Gong, D. Zhang, Y. Hu, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tip2024.png" alt="TIP 2024">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TIP'24]</div>
+                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10794585" target="_blank">DREAM-PCD: Deep Reconstruction and Enhancement of mmWave Radar Point Cloud</a></div>
+                <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, J. Wu, Y. Gao, Y. Hu, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tmc2024.png" alt="TMC 2024">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TMC'24]</div>
+                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10740682" target="_blank">IFNet: Deep Imaging and Focusing for Handheld SAR With Millimeter-Wave Signals</a></div>
+                <div class="pub-authors">Y. Li, D. Zhang, <strong>R. Geng</strong>, J. Wu, Y. Hu, Q. Sun, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tip2022.png" alt="TIP 2022">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TIP'22]</div>
+                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9623377" target="_blank">Passive Non-Line-of-Sight Imaging Using Optimal Transport</a></div>
+                <div class="pub-authors"><strong>R. Geng</strong>, Y. Hu, Z. Lu, C. Yu, H. Li, H. Zhang, Y. Chen</div>
+            </div>
+        </div>
+
+        <div class="show-all-link">
+            <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">See Google Scholar for full publication list</a>
+        </div>
+    </section>
+
+    <!-- <section class="section">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <div class="item-header">
+                <div class="item-title">Ph.D. in Cybersecurity</div>
+                <div class="item-date">Sep. 2022 - Dec. 2025</div>
+            </div>
+            <div class="item-subtitle">University of Science and Technology of China (USTC)</div>
+            <div class="item-details">Hefei, China • GPA: 4.30/4.5 (97.5/100)</div>
+        </div>
+
+        <div class="education-item">
+            <div class="item-header">
+                <div class="item-title">M.S. in Information and Communication Engineering</div>
+                <div class="item-date">Sep. 2019 - Jun. 2022</div>
+            </div>
+            <div class="item-subtitle">University of Electronic Science and Technology of China (UESTC)</div>
+            <div class="item-details">Chengdu, China • GPA: 3.94/4.0 (89.9/100)</div>
+        </div>
+
+        <div class="education-item">
+            <div class="item-header">
+                <div class="item-title">B.E. in Communication Engineering</div>
+                <div class="item-date">Sep. 2015 - Jun. 2019</div>
+            </div>
+            <div class="item-subtitle">University of Electronic Science and Technology of China (UESTC)</div>
+            <div class="item-details">Chengdu, China • GPA: 3.93/4.0 (90.1/100) • Top 1.65% of class</div>
+        </div>
+    </section> -->
+
+    <section class="section">
+        <h2>Awards</h2>
+        <div class="awards-grid">
+            <div class="award-year">2018, 2017</div>
+            <div class="award-name">National Scholarship (Top 3% nationally)</div>
+            
+            <div class="award-year">2019</div>
+            <div class="award-name">Outstanding Graduate of Sichuan Province (Top 3%)</div>
+            
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Services</h2>
+        <p><strong>Journal Reviewer:</strong> IEEE TIP, IEEE TASE, IEEE RA-L, Scientific Reports, Optics Letters, Chinese Optics Letters, Photonic Sensors</p>
+        <p><strong>Conference Reviewer:</strong> ICLR (2024), IROS (2024), ACM MM (2023-2025), ICME (2025), IEEE AVSS (2025)</p>
+        <p><strong>Teaching Assistant:</strong> Internet of Things and Security (IS400101), Fall 2023, USTC</p>
+        <p><strong>Mentoring:</strong> I've been lucky to work closely with the following talented MS students for ≥6 months: Yating Gao (Class of 2025, USTC MS -> Osaka University PhD), Jiarui Zhang (Class of 2025, USTC MS -> Meituan), Xiaolong Du (Class of 2025, USTC MS -> Meituan), Jincheng Wu (Class of 2025, USTC MS -> ByteDance)</p>
+
+        <!--  Xiaolong Du (Class of 2025, USTC MS -> ),  -->
+    </section>
+
+    <footer>
+        <p>© 2025 Ruixu Geng. Last updated: June 2025.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
