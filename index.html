@@ -354,12 +354,24 @@
             background: #fff !important;
             border: 1px solid #eee;
         }
+        
+        .pub-image-text {
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: #e0e7ff; 
+            color: #4338ca; 
+            font-weight: bold; 
+            font-size: 0.85em;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Ruixu Geng</h1>
-        <div class="subtitle">PhD Candidate • University of Science and Technology of China</div>
+        <div class="subtitle">Postdoctoral Fellow • The University of Hong Kong (HKU)</div>
         
         <div class="contact-links">
             <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">Google Scholar</a>
@@ -368,7 +380,7 @@
         </div>
 
         <div class="intro">
-            Hi! I am a final-year PhD student at University of Science and Technology of China, advised by <a href="https://scholar.google.com/citations?user=MVOCn1AAAAAJ&hl=en" target="_blank">Prof. Yan Chen</a>. Previously, I received my Master's and Bachelor's degrees in Communication Engineering from University of Electronic Science and Technology of China.
+            Hi! I am currently a Postdoctoral Fellow at the <a href="https://hku.welight.fun/" target="_blank">WeLight Lab</a>, The University of Hong Kong (HKU), advised by <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Prof. Evan Peng</a>. Before joining HKU, I received my Ph.D. degree from the University of Science and Technology of China (USTC), advised by <a href="https://scholar.google.com/citations?user=MVOCn1AAAAAJ&hl=en" target="_blank">Prof. Yan Chen</a>. I received my Master's and Bachelor's degrees in Communication Engineering from the University of Electronic Science and Technology of China (UESTC).
         </div>
         <div class="profile-photo">
             <img src="ruixu.jfif" alt="Profile Photo">
@@ -378,27 +390,34 @@
     <section class="section">
         <h2>Research</h2>
         <div class="research-areas">
-            <p>My research focuses on <strong>computational imaging</strong>, <strong>mmWave radar imaging</strong>, and <strong>wireless sensing</strong>. My recent works explore:</p>
-            <p>• mmWave radar imaging / mmWave radar point cloud reconstruction (<strong>TIP'24</strong>, <strong>TMC'24</strong>, <strong>CE'24</strong>, <strong>ICASSP'24</strong>)</p>
+            <p>My research heavily focuses on <strong>computational imaging and sensing</strong>. My recent works explore:</p>
             <p>• Advancing non-line-of-sight imaging techniques (<strong>TIP'22</strong>, <strong>TIP'25</strong>, <strong>ICASSP'25</strong>, <strong>ICME'25</strong>)</p>
-            <p>• Developing security measures for wireless sensing systems (<strong>TIFS'25</strong>)</p>
-            <p>• Applying wireless sensing to other applications, e.g., biomedical sensing and human-centric perception (<strong>Nature Communications'25</strong>, <strong>ICLR'25</strong>, <strong>WCSP'25</strong>)</p>
+            <p>• mmWave radar (RF) imaging (<strong>TMC'26</strong>, <strong>TIFS'25</strong>, <strong>TIP'24</strong>, <strong>TMC'24</strong>, <strong>CE'24</strong>, <strong>CVPR'26</strong>)</p>
+            <p>• Applying computational imaging and sensing to other applications, e.g., biomedical sensing and human-centric perception (<strong>IEEE COMST'25</strong>, <strong>Nature Communications'25</strong>, <strong>ICLR'25</strong>, <strong>ICCV'25</strong>)</p>
         </div>
     </section>
 
     <section class="section">
         <h2>News</h2>
         <div class="news-item">
+            <div class="news-date">02/2026:</div>
+            <div class="news-content">One paper about automatic phase calibration for high-resolution mmWave imaging was accepted by <strong>IEEE TMC'26</strong>.</div>
+        </div>
+        <div class="news-item">
+            <div class="news-date">02/2026:</div>
+            <div class="news-content">One paper about CLIP-driven vision-radio person re-identification was accepted by <strong>CVPR'26</strong>. Huge congrats to the first author Rui Zhang!</div>
+        </div>
+        <div class="news-item">
             <div class="news-date">08/2025:</div>
             <div class="news-content">One paper about wireless sensing security was accepted by <strong>IEEE COMST'25 (IF=46.7)</strong>.</div>
         </div>
         <div class="news-item">
             <div class="news-date">06/2025:</div>
-            <div class="news-content">One paper about video-radar remote physiological measurement was accepted by <strong>ICCV'25</strong>.</div>
+            <div class="news-content">One paper about video-radar remote physiological measurement was accepted by <strong>ICCV'25</strong>. Huge congrats to the first author Qiang Liang!</div>
         </div>
         <div class="news-item">
             <div class="news-date">05/2025:</div>
-            <div class="news-content">One paper about mmWave radar-based atrial fibrillation detection has been accepted by <strong>Nature Communications</strong>.</div>
+            <div class="news-content">One paper about mmWave radar-based atrial fibrillation detection has been accepted by <strong>Nature Communications</strong>. Huge congrats to the first authors Yuqin Yuan and Jinbo Chen!</div>
         </div>
         <div class="news-item">
             <div class="news-date">05/2025:</div>
@@ -406,12 +425,27 @@
         </div>
         <div class="news-item">
             <div class="news-date">03/2025:</div>
-            <div class="news-content">One paper about passive non-line-of-sight imaging has been accepted by <strong>ICME'25</strong>.</div>
+            <div class="news-content">One paper about passive non-line-of-sight imaging has been accepted by <strong>ICME'25</strong>. Huge congrats to the first author Yi Wang!</div>
         </div>
     </section>
 
     <section class="section">
         <h2>Selected Publications</h2>
+
+        <div class="publication">
+            <div class="pub-image pub-image-whitebg">
+                <img src="tmc2026.png" alt="TIFS 2025">
+            </div>
+            <div class="pub-content">
+                <div class="pub-venue">[TMC'26]</div>
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/TMC.2026.3668031" target="_blank">
+                        Automatic Phase Calibration for High-Resolution Mmwave Sensing Via Ambient Radio Anchors
+                    </a>
+                </div>
+                <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, P. Huang, B. Wang, B. Zhang</div>
+            </div>
+        </div>
 
         <div class="publication">
             <div class="pub-image pub-image-whitebg">
@@ -514,41 +548,10 @@
         </div>
     </section>
 
-    <!-- <section class="section">
-        <h2>Education</h2>
-        
-        <div class="education-item">
-            <div class="item-header">
-                <div class="item-title">Ph.D. in Cybersecurity</div>
-                <div class="item-date">Sep. 2022 - Dec. 2025</div>
-            </div>
-            <div class="item-subtitle">University of Science and Technology of China (USTC)</div>
-            <div class="item-details">Hefei, China • GPA: 4.30/4.5 (97.5/100)</div>
-        </div>
-
-        <div class="education-item">
-            <div class="item-header">
-                <div class="item-title">M.S. in Information and Communication Engineering</div>
-                <div class="item-date">Sep. 2019 - Jun. 2022</div>
-            </div>
-            <div class="item-subtitle">University of Electronic Science and Technology of China (UESTC)</div>
-            <div class="item-details">Chengdu, China • GPA: 3.94/4.0 (89.9/100)</div>
-        </div>
-
-        <div class="education-item">
-            <div class="item-header">
-                <div class="item-title">B.E. in Communication Engineering</div>
-                <div class="item-date">Sep. 2015 - Jun. 2019</div>
-            </div>
-            <div class="item-subtitle">University of Electronic Science and Technology of China (UESTC)</div>
-            <div class="item-details">Chengdu, China • GPA: 3.93/4.0 (90.1/100) • Top 1.65% of class</div>
-        </div>
-    </section> -->
-
     <section class="section">
         <h2>Awards</h2>
         <div class="awards-grid">
-            <div class="award-year">2018, 2017</div>
+            <div class="award-year">2025, 2018, 2017</div>
             <div class="award-name">National Scholarship (Top 3% nationally)</div>
             
             <div class="award-year">2019</div>
@@ -560,15 +563,13 @@
     <section class="section">
         <h2>Services</h2>
         <p><strong>Journal Reviewer:</strong> IEEE TIP, IEEE TASE, IEEE RA-L, Scientific Reports, Optics Letters, Chinese Optics Letters, Photonic Sensors</p>
-        <p><strong>Conference Reviewer:</strong> ICLR (2024), IROS (2024), ACM MM (2023-2025), ICME (2025), IEEE AVSS (2025)</p>
+        <p><strong>Conference Reviewer:</strong> ECCV (2026), CVPR (2026), ICLR (2025-2026), ACM MM (2023-2026), ICME (2025-2026), IROS (2024), IEEE AVSS (2025)</p>
         <p><strong>Teaching Assistant:</strong> Internet of Things and Security (IS400101), Fall 2023, USTC</p>
         <p><strong>Mentoring:</strong> I've been lucky to work closely with the following talented MS students for ≥6 months: Yating Gao (Class of 2025, USTC MS -> Osaka University PhD), Jiarui Zhang (Class of 2025, USTC MS -> Meituan), Xiaolong Du (Class of 2025, USTC MS -> Alibaba), Jincheng Wu (Class of 2025, USTC MS -> ByteDance)</p>
-
-        <!--  Xiaolong Du (Class of 2025, USTC MS -> ),  -->
     </section>
 
     <footer>
-        <p>© 2025 Ruixu Geng. Last updated: June 2025.</p>
+        <p>© 2026 Ruixu Geng. Last updated: March 2026.</p>
     </footer>
 
     <script>
@@ -585,6 +586,4 @@
             });
         });
     </script>
-
-
 </body></html>
