@@ -1,184 +1,412 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruixu Geng's Homepage</title>
+    <meta name="description" content="Ruixu Geng - Postdoctoral Fellow at The University of Hong Kong. Research in computational imaging, non-line-of-sight imaging, and mmWave radar sensing.">
+    <title>Ruixu Geng | HKU WeLight Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Natural Green Theme - Harmonizes with forest photos */
+            --primary: #1a4731;
+            --primary-light: #2d6a4f;
+            --primary-dark: #0d2818;
+            --accent: #b8860b;
+            --accent-light: #d4a04a;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f8faf8;
+            --bg-card: #ffffff;
+            --border: #d8e4dc;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        header {
-            margin-bottom: 40px;
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-medium);
+            background-color: var(--bg-light);
+            font-size: 16px;
+        }
+
+        /* ========== Navigation ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--accent);
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
             position: relative;
         }
 
-        h1 {
-            font-size: 2.2em;
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: var(--primary);
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 140px 30px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            color: white;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-title {
+            font-size: 1.35rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero-title a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .hero-title a:hover {
+            border-bottom-color: var(--accent-light);
+        }
+
+        .hero-intro {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-intro a {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 160, 74, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .hero-intro a:hover {
+            border-bottom-color: var(--accent-light);
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+            animation: fadeInRight 0.8s ease 0.3s both;
+        }
+
+        .hero-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-xl);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-photo img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========== Main Content ========== */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* ========== Section Styles ========== */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #222;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 20px;
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
         }
 
-        .contact-links {
+        /* ========== Research Section ========== */
+        .research-content {
+            background: var(--bg-card);
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+        }
+
+        .research-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .research-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .research-highlight {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .venue-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+
+        /* ========== News Section ========== */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .news-item {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
+            padding: 15px 20px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
 
-        .contact-links a {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 0.95em;
+        .news-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent);
+            box-shadow: var(--shadow-lg);
         }
 
-        .contact-links a:hover {
-            text-decoration: underline;
-        }
-
-        .intro {
-            font-size: 1.05em;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            color: #444;
-        }
-
-        .intro a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        .intro a:hover {
-            text-decoration: underline;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            font-size: 1.3em;
+        .news-date {
             font-weight: 600;
-            margin-bottom: 20px;
-            color: #222;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
+            color: var(--primary);
+            min-width: 75px;
+            font-size: 0.9rem;
         }
 
-        .research-areas {
-            margin-bottom: 25px;
-        }
-
-        .research-areas p {
-            margin-bottom: 15px;
+        .news-content {
+            color: var(--text-medium);
             line-height: 1.6;
         }
 
-        .research-areas strong {
-            color: #222;
+        .news-content strong {
+            color: var(--primary);
         }
 
-        .education-item, .experience-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f5f5f5;
+        /* ========== Publications Section ========== */
+        .pub-grid {
+            display: grid;
+            gap: 25px;
         }
 
-        .education-item:last-child, .experience-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .item-header {
+        .pub-card {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-            gap: 10px;
+            gap: 25px;
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
 
-        .item-title {
-            font-weight: 600;
-            color: #222;
-        }
-
-        .item-date {
-            color: #666;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        .item-subtitle {
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .item-details {
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        .publication {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .publication:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+        .pub-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
         .pub-image {
             flex-shrink: 0;
-            width: 80px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 6px;
+            width: 120px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--bg-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
         }
+
         .pub-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            border-radius: 6px;
-            display: block;
-            background: transparent;
-        }
-        .pub-image .pub-year {
-            position: absolute;
-            right: 8px;
-            bottom: 6px;
-            color: #fff;
-            font-size: 1em;
-            font-weight: 600;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.18);
-            pointer-events: none;
+            object-fit: cover;
         }
 
         .pub-content {
@@ -187,403 +415,672 @@
         }
 
         .pub-venue {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: #0066cc;
-            font-size: 0.9em;
-            margin-bottom: 2px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
         }
 
         .pub-title {
-            color: #222;
-            margin: 2px 0 5px 0;
-            font-weight: 500;
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
         .pub-title a {
-            color: #222;
+            color: inherit;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .pub-title a:hover {
-            color: #0066cc;
-            text-decoration: underline;
+            color: var(--primary);
         }
 
         .pub-authors {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.4;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .pub-authors strong {
-            color: #222;
-        }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 10px 20px;
-            align-items: start;
-        }
-
-        .award-year {
+            color: var(--primary);
             font-weight: 600;
-            color: #666;
-            font-size: 0.9em;
         }
 
-        .award-name {
-            color: #444;
-            line-height: 1.4;
-        }
-
-        .news-item {
-            margin-bottom: 15px;
+        .pub-links {
+            margin-top: 10px;
             display: flex;
             gap: 15px;
         }
 
-        .news-date {
-            font-weight: 600;
-            color: #666;
-            font-size: 0.9em;
-            min-width: 70px;
-        }
-
-        .news-content {
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .news-content a {
-            color: #0066cc;
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-light);
             text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .news-content a:hover {
-            text-decoration: underline;
+        .pub-link:hover {
+            color: var(--accent);
         }
 
-        .show-all-link {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .show-all-link a {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 0.95em;
-        }
-
-        .show-all-link a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #888;
-            font-size: 0.9em;
+        .pub-more {
             text-align: center;
+            padding: 25px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 15px;
+        .pub-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .pub-more a:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ========== Awards Section ========== */
+        .awards-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .award-item {
+            display: flex;
+            gap: 25px;
+            padding: 18px 25px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+
+        .award-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .award-year {
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 100px;
+            font-size: 0.95rem;
+        }
+
+        .award-name {
+            color: var(--text-medium);
+            font-size: 1rem;
+        }
+
+        .award-name strong {
+            color: var(--text-dark);
+        }
+
+        /* ========== Services Section ========== */
+        .services-content {
+            background: var(--bg-card);
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .services-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .services-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .services-item strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .services-item p {
+            color: var(--text-medium);
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== Animations ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== Mobile Responsive ========== */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
             }
 
-            .item-header {
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero-inner {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-name {
+                font-size: 2.4rem;
+            }
+
+            .hero-title {
+                font-size: 1.1rem;
+            }
+
+            .hero-intro {
+                margin: 0 auto 25px;
+            }
+
+            .hero-photo img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .social-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .pub-card {
                 flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .awards-grid {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-
-            .news-item {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .publication {
-                flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
 
             .pub-image {
                 width: 100%;
-                height: 50px;
+                height: 120px;
             }
-            .profile-photo {
+
+            .news-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .award-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .research-content,
+            .services-content {
+                padding: 20px;
+            }
+        }
+
+        /* ========== Print Styles ========== */
+        @media print {
+            .navbar {
                 position: static;
-                margin: 0 auto 20px auto;
-                display: block;
+                box-shadow: none;
             }
-        }
 
-        .profile-photo {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+            .hero {
+                background: var(--primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 40px 20px;
+            }
 
-        .pub-image-whitebg {
-            background: #fff !important;
-            border: 1px solid #eee;
-        }
-        
-        .pub-image-text {
-            width: 100%; 
-            height: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: #e0e7ff; 
-            color: #4338ca; 
-            font-weight: bold; 
-            font-size: 0.85em;
+            .pub-card:hover,
+            .news-item:hover,
+            .award-item:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ruixu Geng</h1>
-        <div class="subtitle">Postdoctoral Fellow • The University of Hong Kong (HKU)</div>
-        
-        <div class="contact-links">
-            <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">Google Scholar</a>
-            <a href="https://github.com/ruixv" target="_blank">GitHub</a>
-            <a href="mailto:gengruixu@mail.ustc.edu.cn">Email</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-brand">Ruixu Geng</a>
+            <ul class="navbar-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="intro">
-            Hi! I am currently a Postdoctoral Fellow at the <a href="https://hku.welight.fun/" target="_blank">WeLight Lab</a>, The University of Hong Kong (HKU), advised by <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Prof. Yifan (Evan) Peng</a>. Before joining HKU, I received my Ph.D. degree from the University of Science and Technology of China (USTC), advised by <a href="https://scholar.google.com/citations?user=MVOCn1AAAAAJ&hl=en" target="_blank">Prof. Yan Chen</a>. I received my Master's and Bachelor's degrees in Communication Engineering from the University of Electronic Science and Technology of China (UESTC).
-        </div>
-        <div class="profile-photo">
-            <img src="ruixu.jfif" alt="Profile Photo">
-        </div>
-    </header>
-
-    <section class="section">
-        <h2>Research</h2>
-        <div class="research-areas">
-            <p>My research heavily focuses on <strong>computational imaging and sensing</strong>. My recent works explore:</p>
-            <p>• Advancing non-line-of-sight imaging techniques (<strong>TIP'22</strong>, <strong>TIP'25</strong>, <strong>ICASSP'25</strong>, <strong>ICME'25</strong>)</p>
-            <p>• mmWave radar (RF) imaging (<strong>TMC'26</strong>, <strong>TIFS'25</strong>, <strong>TIP'24</strong>, <strong>TMC'24</strong>, <strong>CE'24</strong>, <strong>CVPR'26</strong>)</p>
-            <p>• Applying computational imaging and sensing to other applications, e.g., biomedical sensing and human-centric perception (<strong>IEEE COMST'25</strong>, <strong>Nature Communications'25</strong>, <strong>ICLR'25</strong>, <strong>ICCV'25</strong>)</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>News</h2>
-        <div class="news-item">
-            <div class="news-date">02/2026:</div>
-            <div class="news-content">One paper about automatic phase calibration for high-resolution mmWave imaging was accepted by <strong>IEEE TMC'26</strong>.</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">02/2026:</div>
-            <div class="news-content">One paper about CLIP-driven vision-radio person re-identification was accepted by <strong>CVPR'26</strong>. Huge congrats and thanks to Rui Zhang!</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">08/2025:</div>
-            <div class="news-content">One paper about wireless sensing security was accepted by <strong>IEEE COMST'25 (IF=46.7)</strong>.</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">06/2025:</div>
-            <div class="news-content">One paper about video-radar remote physiological measurement was accepted by <strong>ICCV'25</strong>. Huge congrats and thanks to Qiang Liang!</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">05/2025:</div>
-            <div class="news-content">One paper about mmWave radar-based atrial fibrillation detection has been accepted by <strong>Nature Communications</strong>. Huge congrats and thanks to Yuqin Yuan and Jinbo Chen!</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">05/2025:</div>
-            <div class="news-content">One paper about adversarial attacks against mmWave radar imaging has been accepted by <strong>IEEE TIFS</strong>.</div>
-        </div>
-        <div class="news-item">
-            <div class="news-date">03/2025:</div>
-            <div class="news-content">One paper about passive non-line-of-sight imaging has been accepted by <strong>ICME'25</strong>. Huge congrats and thanks to Yi Wang!</div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Selected Publications</h2>
-
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tmc2026.png" alt="TIFS 2025">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TMC'26]</div>
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/TMC.2026.3668031" target="_blank">
-                        Automatic Phase Calibration for High-Resolution Mmwave Sensing Via Ambient Radio Anchors
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1 class="hero-name">Ruixu Geng</h1>
+                <div class="hero-title">
+                    Postdoctoral Fellow at <a href="https://hku.welight.fun/" target="_blank">WeLight Lab</a>, The University of Hong Kong<br>
+                </div>
+                <div class="hero-intro">
+                    Hi! I am currently a Postdoctoral Fellow at the <a href="https://hku.welight.fun/" target="_blank">WeLight Lab</a>, The University of Hong Kong (HKU), advised by <a href="https://www.eee.hku.hk/~evanpeng/">Prof. Yifan (Evan) Peng</a>. Before joining HKU, I received my Ph.D. from the <a href="https://en.ustc.edu.cn/" target="_blank">University of Science and Technology of China (USTC)</a>, advised by <a href="https://scholar.google.com/citations?user=MVOCn1AAAAAJ" target="_blank">Prof. Yan Chen</a>. I obtained my Master's and Bachelor's degrees from the <a href="https://en.uestc.edu.cn/" target="_blank">University of Electronic Science and Technology of China (UESTC)</a>. My research focuses on computational imaging and sensing, particularly in non-line-of-sight imaging and mmWave radar imaging.
+                </div>
+                <div class="social-links">
+                    <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+                        Google Scholar
+                    </a>
+                    <a href="https://github.com/ruixv" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:gengruixu@mail.ustc.edu.cn" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Email
                     </a>
                 </div>
-                <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, P. Huang, B. Wang, B. Zhang</div>
+            </div>
+            <div class="hero-photo">
+                <img src="ruixu.jfif" alt="Ruixu Geng">
             </div>
         </div>
+    </section>
 
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tifs.png" alt="TIFS 2025">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TIFS'25]</div>
-                <div class="pub-title">
-                    <a href="https://ieeexplore.ieee.org/abstract/document/11007126/" target="_blank">
-                        Attacking mmWave Imaging with Neural Meta-Material Rendering
-                    </a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Research Section -->
+        <section id="research" class="section fade-in">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 </div>
-                <div class="pub-authors"><strong>R. Geng</strong>, D. Zhang, Y. Li, Z. Wu, J. Li, Q. Chen, Y. Hu, Y. Chen</div>
+                <h2 class="section-title">Research</h2>
             </div>
-        </div>
+            <div class="research-content">
+                <p>My research focuses on <span class="research-highlight">computational imaging and sensing</span>. I develop advanced imaging systems that can "see around corners" and perceive the world through radio waves. My recent works explore:</p>
+                <p>• <span class="research-highlight">Non-line-of-sight (NLOS) imaging</span> — reconstructing hidden objects from indirect light reflections (<span class="venue-tag">TIP'22</span> <span class="venue-tag">TIP'25</span> <span class="venue-tag">ICASSP'25</span> <span class="venue-tag">ICME'25</span>)</p>
+                <p>• <span class="research-highlight">mmWave radar imaging</span> — high-resolution imaging and sensing using millimeter-wave signals (<span class="venue-tag">TMC'26</span> <span class="venue-tag">TIFS'25</span> <span class="venue-tag">TIP'24</span> <span class="venue-tag">CVPR'26</span>)</p>
+                <p>• <span class="research-highlight">Biomedical and human-centric sensing</span> — applying computational sensing to healthcare and human perception (<span class="venue-tag">Nature Comm.'25</span> <span class="venue-tag">ICLR'25</span> <span class="venue-tag">ICCV'25</span>)</p>
+            </div>
+        </section>
 
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="iccv2025.png" alt="ICCV 2025">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[ICCV'25]</div>
-                <div class="pub-title">
-                    <a href="#" target="_blank">
-                        Spatial Alignment and Temporal Matching Adapter for Video-Radar Remote Physiological Measurement
-                    </a>
+        <!-- News Section -->
+        <section id="news" class="section fade-in">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                 </div>
-                <div class="pub-authors">Q. Liang, <strong>R. Geng</strong>, J. Chen, H. Wang, Y. Chen, Y. Hu</div>
+                <h2 class="section-title">News</h2>
             </div>
-        </div>
-        
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="naturecomm.png" alt="Nature Comm. 2025">
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-date">02/2026</div>
+                    <div class="news-content">One paper about automatic phase calibration for high-resolution mmWave imaging was accepted by <strong>IEEE TMC</strong>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">02/2026</div>
+                    <div class="news-content">One paper about CLIP-driven vision-radio person re-identification was accepted by <strong>CVPR</strong>. Huge congrats and thanks to Rui Zhang!</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">08/2025</div>
+                    <div class="news-content">One paper about wireless sensing security was accepted by <strong>IEEE COMST (IF=46.7)</strong>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">06/2025</div>
+                    <div class="news-content">One paper about video-radar remote physiological measurement was accepted by <strong>ICCV</strong>. Huge congrats and thanks to Qiang Liang!</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">05/2025</div>
+                    <div class="news-content">One paper about mmWave radar-based atrial fibrillation detection was accepted by <strong>Nature Communications</strong>. Huge congrats to Yuqin Yuan and Jinbo Chen!</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">05/2025</div>
+                    <div class="news-content">One paper about adversarial attacks against mmWave radar imaging was accepted by <strong>IEEE TIFS</strong>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">03/2025</div>
+                    <div class="news-content">One paper about passive non-line-of-sight imaging was accepted by <strong>ICME</strong>. Huge congrats and thanks to Yi Wang!</div>
+                </div>
             </div>
-            <div class="pub-content">
-                <div class="pub-venue">[Nature Comm.'25]</div>
-                <div class="pub-title"><a href="https://www.nature.com/articles/s41467-025-59482-y" target="_blank">Atrial Fibrillation Detection via Contactless Radio Monitoring and Knowledge Transfer</a></div>
-                <div class="pub-authors">Y. Yuan*, J. Chen*, D. Zhang, <strong>R. Geng</strong>, H. Gong, G. Xu, Y. Pu, Z. Lu, Y. Hu, D. Zhang, L. Ma, Q. Sun, Y. Chen</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tip2025.png" alt="TIP 2025">
+        <!-- Publications Section -->
+        <section id="publications" class="section fade-in">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                </div>
+                <h2 class="section-title">Selected Publications</h2>
             </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TIP'25]</div>
-                <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10811818" target="_blank">Passive Non-Line-of-Sight Imaging with Light Transport Modulation</a></div>
-                <div class="pub-authors">J. Zhang, <strong>R. Geng</strong>, X. Du, Y. Chen, H. Li, Y. Hu</div>
+            <div class="pub-grid">
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tmc2026.png" alt="TMC 2026">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TMC 2026</span>
+                        <h3 class="pub-title">
+                            <a href="https://doi.org/10.1109/TMC.2026.3668031" target="_blank">
+                                Automatic Phase Calibration for High-Resolution MmWave Sensing Via Ambient Radio Anchors
+                            </a>
+                        </h3>
+                        <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, P. Huang, B. Wang, B. Zhang, Z. Lu, H. Yang, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tifs.png" alt="TIFS 2025">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TIFS 2025</span>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11007126/" target="_blank">
+                                Attacking mmWave Imaging with Neural Meta-Material Rendering
+                            </a>
+                        </h3>
+                        <div class="pub-authors"><strong>R. Geng</strong>, D. Zhang, Y. Li, Z. Wu, J. Li, Q. Chen, Y. Hu, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="naturecomm.png" alt="Nature Communications">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">Nature Comm. 2025</span>
+                        <h3 class="pub-title">
+                            <a href="https://www.nature.com/articles/s41467-025-59482-y" target="_blank">
+                                Atrial Fibrillation Detection via Contactless Radio Monitoring and Knowledge Transfer
+                            </a>
+                        </h3>
+                        <div class="pub-authors">Y. Yuan*, J. Chen*, D. Zhang, <strong>R. Geng</strong>, H. Gong, G. Xu, Y. Pu, Z. Lu, Y. Hu, D. Zhang, L. Ma, Q. Sun, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="iccv2025.png" alt="ICCV 2025">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">ICCV 2025</span>
+                        <h3 class="pub-title">
+                            <a href="#" target="_blank">
+                                Spatial Alignment and Temporal Matching Adapter for Video-Radar Remote Physiological Measurement
+                            </a>
+                        </h3>
+                        <div class="pub-authors">Q. Liang, <strong>R. Geng</strong>, J. Chen, H. Wang, Y. Chen, Y. Hu</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tip2025.png" alt="TIP 2025">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TIP 2025</span>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10811818" target="_blank">
+                                Passive Non-Line-of-Sight Imaging with Light Transport Modulation
+                            </a>
+                        </h3>
+                        <div class="pub-authors">J. Zhang, <strong>R. Geng</strong>, X. Du, Y. Chen, H. Li, Y. Hu</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="iclr2025.png" alt="ICLR 2025">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">ICLR 2025</span>
+                        <h3 class="pub-title">
+                            <a href="https://openreview.net/pdf?id=lG9fjBLb6d" target="_blank">
+                                RFMamba: Frequency-Aware State Space Model for RF-Based Human-Centric Perception
+                            </a>
+                        </h3>
+                        <div class="pub-authors">R. Zhang, <strong>R. Geng</strong>, Y. Li, R. Song, H. Gong, D. Zhang, Y. Hu, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tip2024.png" alt="TIP 2024">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TIP 2024</span>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10794585" target="_blank">
+                                DREAM-PCD: Deep Reconstruction and Enhancement of mmWave Radar Point Cloud
+                            </a>
+                        </h3>
+                        <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, J. Wu, Y. Gao, Y. Hu, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tmc2024.png" alt="TMC 2024">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TMC 2024</span>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10740682" target="_blank">
+                                IFNet: Deep Imaging and Focusing for Handheld SAR With Millimeter-Wave Signals
+                            </a>
+                        </h3>
+                        <div class="pub-authors">Y. Li, D. Zhang, <strong>R. Geng</strong>, J. Wu, Y. Hu, Q. Sun, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="tip2022.png" alt="TIP 2022">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">TIP 2022</span>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/9623377" target="_blank">
+                                Passive Non-Line-of-Sight Imaging Using Optimal Transport
+                            </a>
+                        </h3>
+                        <div class="pub-authors"><strong>R. Geng</strong>, Y. Hu, Z. Lu, C. Yu, H. Li, H. Zhang, Y. Chen</div>
+                    </div>
+                </div>
             </div>
+            <div class="pub-more">
+                <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    View Full Publication List on Google Scholar
+                </a>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="section fade-in">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <h2 class="section-title">Awards & Honors</h2>
+            </div>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <div class="award-year">2017, 2018, 2025</div>
+                    <div class="award-name"><strong>National Scholarship</strong> — Top 3% nationally, Ministry of Education of China</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-year">2019</div>
+                    <div class="award-name"><strong>Outstanding Graduate of Sichuan Province</strong> — Top 3%, awarded for academic excellence</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section fade-in">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h2 class="section-title">Academic Services</h2>
+            </div>
+            <div class="services-content">
+                <div class="services-item">
+                    <strong>Journal Reviewer</strong>
+                    <p>IEEE Transactions on Image Processing (TIP), IEEE Transactions on Automation Science and Engineering (TASE), IEEE Robotics and Automation Letters (RA-L), Scientific Reports, Optics Letters, Chinese Optics Letters, Photonic Sensors</p>
+                </div>
+                <div class="services-item">
+                    <strong>Conference Reviewer</strong>
+                    <p>ECCV (2026), CVPR (2026), ICLR (2025-2026), ACM MM (2023-2026), ICME (2025-2026), IROS (2024), IEEE AVSS (2025)</p>
+                </div>
+                <div class="services-item">
+                    <strong>Teaching Assistant</strong>
+                    <p>Internet of Things and Security (IS400101), Fall 2023, USTC</p>
+                </div>
+                <div class="services-item">
+                    <strong>Mentoring</strong>
+                    <p>I've been lucky to work closely with talented MS students: <strong>Yating Gao</strong> (USTC MS → Osaka University PhD), <strong>Jiarui Zhang</strong> (USTC MS → Meituan), <strong>Xiaolong Du</strong> (USTC MS → Alibaba), <strong>Jincheng Wu</strong> (USTC MS → ByteDance)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Ruixu Geng. All rights reserved.</p>
+            <p>Last updated: March 2026 | Hong Kong</p>
         </div>
-
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="iclr2025.png" alt="ICLR 2025">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[ICLR'25]</div>
-                <div class="pub-title"><a href="https://openreview.net/pdf?id=lG9fjBLb6d" target="_blank">RFMamba: Frequency-Aware State Space Model for RF-Based Human-Centric Perception</a></div>
-                <div class="pub-authors">R. Zhang, <strong>R. Geng</strong>, Y. Li, R. Song, H. Gong, D. Zhang, Y. Hu, Y. Chen</div>
-            </div>
-        </div>
-
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tip2024.png" alt="TIP 2024">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TIP'24]</div>
-                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10794585" target="_blank">DREAM-PCD: Deep Reconstruction and Enhancement of mmWave Radar Point Cloud</a></div>
-                <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, J. Wu, Y. Gao, Y. Hu, Y. Chen</div>
-            </div>
-        </div>
-
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tmc2024.png" alt="TMC 2024">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TMC'24]</div>
-                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10740682" target="_blank">IFNet: Deep Imaging and Focusing for Handheld SAR With Millimeter-Wave Signals</a></div>
-                <div class="pub-authors">Y. Li, D. Zhang, <strong>R. Geng</strong>, J. Wu, Y. Hu, Q. Sun, Y. Chen</div>
-            </div>
-        </div>
-
-        <div class="publication">
-            <div class="pub-image pub-image-whitebg">
-                <img src="tip2022.png" alt="TIP 2022">
-            </div>
-            <div class="pub-content">
-                <div class="pub-venue">[TIP'22]</div>
-                <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9623377" target="_blank">Passive Non-Line-of-Sight Imaging Using Optimal Transport</a></div>
-                <div class="pub-authors"><strong>R. Geng</strong>, Y. Hu, Z. Lu, C. Yu, H. Li, H. Zhang, Y. Chen</div>
-            </div>
-        </div>
-
-        <div class="show-all-link">
-            <a href="https://scholar.google.com/citations?user=1t-Lr8gAAAAJ" target="_blank">See Google Scholar for full publication list</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Awards</h2>
-        <div class="awards-grid">
-            <div class="award-year">2025, 2018, 2017</div>
-            <div class="award-name">National Scholarship (Top 3% nationally)</div>
-            
-            <div class="award-year">2019</div>
-            <div class="award-name">Outstanding Graduate of Sichuan Province (Top 3%)</div>
-            
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Services</h2>
-        <p><strong>Journal Reviewer:</strong> IEEE TIP, IEEE TASE, IEEE RA-L, Scientific Reports, Optics Letters, Chinese Optics Letters, Photonic Sensors</p>
-        <p><strong>Conference Reviewer:</strong> ECCV (2026), CVPR (2026), ICLR (2025-2026), ACM MM (2023-2026), ICME (2025-2026), IROS (2024), IEEE AVSS (2025)</p>
-        <p><strong>Teaching Assistant:</strong> Internet of Things and Security (IS400101), Fall 2023, USTC</p>
-        <p><strong>Mentoring:</strong> I've been lucky to work closely with the following talented MS students for ≥6 months: Yating Gao (Class of 2025, USTC MS -> Osaka University PhD), Jiarui Zhang (Class of 2025, USTC MS -> Meituan), Xiaolong Du (Class of 2025, USTC MS -> Alibaba), Jincheng Wu (Class of 2025, USTC MS -> ByteDance)</p>
-    </section>
-
-    <footer>
-        <p>© 2026 Ruixu Geng. Last updated: March 2026.</p>
     </footer>
 
+    <!-- Scroll Animation Script -->
     <script>
-        // Smooth scrolling for anchor links
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // Navbar background on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
     </script>
-</body></html>
+</body>
+</html>
