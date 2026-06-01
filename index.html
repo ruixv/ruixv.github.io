@@ -379,6 +379,86 @@
             border-bottom-color: var(--primary);
         }
 
+        /* ========== News Carousel ========== */
+        .news-carousel {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .news-viewport {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .news-track {
+            display: flex;
+            transition: transform 0.4s ease;
+            will-change: transform;
+        }
+
+        .news-page {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .news-nav {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.25s ease;
+        }
+
+        .news-nav:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.08);
+        }
+
+        .news-nav:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .news-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .news-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .news-dot.active {
+            background: var(--accent);
+            transform: scale(1.25);
+        }
+
+        .news-dot:hover {
+            background: var(--accent-light);
+        }
+
         /* ========== Publications Section ========== */
         .pub-grid {
             display: grid;
@@ -808,7 +888,16 @@
                 </div>
                 <h2 class="section-title">News</h2>
             </div>
-            <div class="news-list">
+            <div class="news-carousel">
+                <button class="news-nav news-prev" aria-label="Previous news">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="news-viewport">
+                    <div class="news-track">
+            <div class="news-item">
+                    <div class="news-date">06/2026</div>
+                    <div class="news-content">One paper about physical adversarial attack defense for mmWave radar sensing was accepted by <strong>IEEE TIFS</strong>.</div>
+                </div>
                 <div class="news-item">
                     <div class="news-date">05/2026</div>
                     <div class="news-content">I am serving as an <strong>Area Chair</strong> for <strong>ICCP 2026</strong>.</div>
@@ -849,7 +938,13 @@
                     <div class="news-date">03/2025</div>
                     <div class="news-content">One paper about passive non-line-of-sight imaging was accepted by <strong>ICME</strong>. Huge congrats and thanks to Yi Wang!</div>
                 </div>
+                    </div>
+                </div>
+                <button class="news-nav news-next" aria-label="Next news">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
             </div>
+            <div class="news-dots" aria-label="News pagination"></div>
         </section>
 
         <!-- Publications Section -->
@@ -1099,6 +1194,68 @@
                 }
             });
         });
+
+        // News carousel — paginate into pages of 5, swipe left/right to navigate
+        (function () {
+            const track = document.querySelector('.news-track');
+            if (!track) return;
+            const prevBtn = document.querySelector('.news-prev');
+            const nextBtn = document.querySelector('.news-next');
+            const dotsWrap = document.querySelector('.news-dots');
+            const perPage = 5;
+
+            const items = Array.from(track.querySelectorAll('.news-item'));
+            const pageCount = Math.ceil(items.length / perPage);
+            let current = 0;
+
+            // Group items into pages
+            track.innerHTML = '';
+            for (let i = 0; i < pageCount; i++) {
+                const page = document.createElement('div');
+                page.className = 'news-page';
+                items.slice(i * perPage, i * perPage + perPage).forEach(it => page.appendChild(it));
+                track.appendChild(page);
+            }
+
+            // Build dots
+            const dots = [];
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'news-dot';
+                dot.setAttribute('aria-label', 'Go to news page ' + (i + 1));
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+                dots.push(dot);
+            }
+
+            function update() {
+                track.style.transform = 'translateX(-' + (current * 100) + '%)';
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+                if (prevBtn) prevBtn.disabled = current === 0;
+                if (nextBtn) nextBtn.disabled = current === pageCount - 1;
+            }
+
+            function goTo(i) {
+                current = Math.max(0, Math.min(pageCount - 1, i));
+                update();
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            // Touch swipe support
+            let startX = null;
+            const viewport = document.querySelector('.news-viewport');
+            viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            viewport.addEventListener('touchend', e => {
+                if (startX === null) return;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+                startX = null;
+            }, { passive: true });
+
+            update();
+        })();
 
         // Navbar background on scroll
         const navbar = document.querySelector('.navbar');
