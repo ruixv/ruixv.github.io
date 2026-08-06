@@ -327,6 +327,67 @@
             margin-right: 5px;
         }
 
+        /* ========== Maintained Resource Callout ========== */
+        .resource-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 12px;
+            padding: 18px 22px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            transform: translateX(5px);
+        }
+
+        .resource-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resource-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .resource-title {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .resource-desc {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        .resource-arrow {
+            flex-shrink: 0;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover .resource-arrow {
+            transform: translateX(4px);
+        }
+
         /* ========== News Section ========== */
         .news-list {
             display: flex;
@@ -516,6 +577,28 @@
             font-weight: 600;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
+        }
+
+        .pub-honor {
+            display: inline-block;
+            background: rgba(26, 71, 49, 0.07);
+            color: var(--primary);
+            border: 1px solid rgba(45, 106, 79, 0.3);
+            padding: 3px 11px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-left: 8px;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .pub-honor:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
         }
 
         .pub-title {
@@ -791,6 +874,19 @@
             .services-content {
                 padding: 20px;
             }
+
+            .resource-card {
+                padding: 16px;
+                gap: 14px;
+            }
+
+            .resource-card:hover {
+                transform: none;
+            }
+
+            .resource-arrow {
+                display: none;
+            }
         }
 
         /* ========== Print Styles ========== */
@@ -873,10 +969,11 @@
                 <h2 class="section-title">Research</h2>
             </div>
             <div class="research-content">
-                <p>My research focuses on <span class="research-highlight">computational imaging and sensing</span>. I develop advanced imaging systems that can "see around corners" and perceive the world through radio waves. My recent works explore:</p>
-                <p>• <span class="research-highlight">Non-line-of-sight (NLOS) imaging</span> — reconstructing hidden objects from indirect light reflections (<span class="venue-tag">TIP'22</span> <span class="venue-tag">TIP'25</span> <span class="venue-tag">ICASSP'25</span> <span class="venue-tag">ICME'25</span>)</p>
-                <p>• <span class="research-highlight">mmWave radar imaging</span> — high-resolution imaging and sensing using millimeter-wave signals (<span class="venue-tag">TMC'26</span> <span class="venue-tag">TIFS'26</span> <span class="venue-tag">TIFS'25</span> <span class="venue-tag">TIP'24</span> <span class="venue-tag">CVPR'26</span>)</p>
-                <p>• <span class="research-highlight">Biomedical and human-centric sensing</span> — applying computational sensing to healthcare and human perception (<span class="venue-tag">Nature Comm.'25</span> <span class="venue-tag">ICLR'25</span> <span class="venue-tag">ICCV'25</span>)</p>
+                <p>My research is in <span class="research-highlight">computational imaging and sensing</span> — augmenting optics with radio-frequency and acoustic modalities to see where light alone fails: hidden targets, extreme environments, signals below the noise floor.</p>
+                <p>My recent work spans:</p>
+                <p>• <span class="research-highlight">Non-line-of-sight (NLOS) imaging</span> — seeing around corners by inverting faint, diffusely scattered light (<span class="venue-tag">TIP'22</span> <span class="venue-tag">TIP'25</span> <span class="venue-tag">ICASSP'25</span> <span class="venue-tag">ICME'25</span>)</p>
+                <p>• <span class="research-highlight">mmWave radar imaging</span> — high-resolution imaging where cameras cannot go: calibration, reconstruction, adversarial robustness (<span class="venue-tag">TMC'26</span> <span class="venue-tag">TIFS'26</span> <span class="venue-tag">TIFS'25</span> <span class="venue-tag">TIP'24</span> <span class="venue-tag">COMST'25</span>)</p>
+                <p>• <span class="research-highlight">Human-centric and biomedical sensing</span> — vital signs and activity buried in clutter, increasingly by fusing radio with vision (<span class="venue-tag">Nature Comm.'25</span> <span class="venue-tag">ICCV'25</span> <span class="venue-tag">CVPR'26</span> <span class="venue-tag">ICLR'25</span>)</p>
             </div>
         </section>
 
@@ -894,7 +991,15 @@
                 </button>
                 <div class="news-viewport">
                     <div class="news-track">
-            <div class="news-item">
+                <div class="news-item">
+                    <div class="news-date">08/2026</div>
+                    <div class="news-content">I am serving as a <strong>TPC Member</strong> for <strong><a href="https://b2b.csoe.org.cn/meeting/CITA2026.html" target="_blank">CITA 2026</a></strong>.</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">08/2026</div>
+                    <div class="news-content">I co-hosted the <a href="https://hku.welight.fun/events/workshop_26Aug/" target="_blank">USTC-HKU Joint Research Seminar on AI-empowered Scientific Imaging &amp; Visual Computing</a> at HKU.</div>
+                </div>
+                <div class="news-item">
                     <div class="news-date">06/2026</div>
                     <div class="news-content">Our paper <a href="https://ieeexplore.ieee.org/document/11122544/" target="_blank">A Survey of Wireless Sensing Security From a Role-Based View</a> was selected by <strong>IEEE ComSoc</strong> for <a href="https://www.comsoc.org/publications/best-readings/wireless-information-forensics-security" target="_blank">Best Readings in Wireless Information Forensics &amp; Security</a>.</div>
                 </div>
@@ -987,6 +1092,22 @@
                             </a>
                         </h3>
                         <div class="pub-authors"><strong>R. Geng</strong>, D. Zhang, Y. Li, J. Wang, Q. Liang, R. Zhang, X. Xu, Z. Lu, Y. Hu, Y. Chen</div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-image">
+                        <img src="comst25.png" alt="COMST 2025">
+                    </div>
+                    <div class="pub-content">
+                        <span class="pub-venue">COMST 2025</span>
+                        <a class="pub-honor" href="https://www.comsoc.org/publications/best-readings/wireless-information-forensics-security" target="_blank">★ ComSoc Best Readings</a>
+                        <h3 class="pub-title">
+                            <a href="https://ieeexplore.ieee.org/document/11122544/" target="_blank">
+                                A Survey of Wireless Sensing Security From a Role-Based View
+                            </a>
+                        </h3>
+                        <div class="pub-authors"><strong>R. Geng</strong>*, J. Wang*, Y. Yuan, F. Zhan, T. Zhang, R. Zhang, P. Huang, D. Zhang, J. Chen, Y. Hu, Y. Chen</div>
                     </div>
                 </div>
 
@@ -1148,8 +1269,8 @@
             </div>
             <div class="services-content">
                 <div class="services-item">
-                    <strong>Area Chair</strong>
-                    <p>ICCP 2026</p>
+                    <strong>Area Chair / TPC Member</strong>
+                    <p>ICCP 2026 (Area Chair), CITA 2026 (TPC Member)</p>
                 </div>
                 <div class="services-item">
                     <strong>Journal Reviewer</strong>
@@ -1167,6 +1288,19 @@
                     <strong>Mentoring</strong>
                     <p>I've been lucky to work closely with talented MS students: <strong>Yating Gao</strong> (USTC MS → Osaka University PhD), <strong>Jiarui Zhang</strong> (USTC MS → Meituan), <strong>Xiaolong Du</strong> (USTC MS → Alibaba), <strong>Jincheng Wu</strong> (USTC MS → ByteDance)</p>
                 </div>
+                <div class="services-item">
+                    <strong>Community Resource</strong>
+                    <a class="resource-card" href="https://ruixv.github.io/NLOS_Overview/" target="_blank">
+                        <div class="resource-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-title">Recent Advances on Non-Line-of-Sight Imaging</div>
+                            <div class="resource-desc">A living survey I maintain — 210+ curated NLOS imaging papers spanning 2008–2026, organized by physical model, sensing modality, and learning paradigm.</div>
+                        </div>
+                        <svg class="resource-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -1175,7 +1309,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 Ruixu Geng. All rights reserved.</p>
-            <p>Last updated: June 2026 | Hong Kong</p>
+            <p>Last updated: August 2026 | Hong Kong</p>
         </div>
     </footer>
 
