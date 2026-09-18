@@ -106,6 +106,12 @@ em { font-style: italic; color: var(--text-secondary); }
 }
 .publications-header h2 { margin: 0; padding: 0; border: none; }
 .scholar-link { font-size: 0.85rem; white-space: nowrap; }
+.pub-links { font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.pub-links a {
+  color: var(--accent-color); padding: 0.15rem 0.5rem; border-radius: 4px;
+  background-color: rgba(74,116,185,0.08); transition: all var(--transition-time) ease;
+}
+.pub-links a:hover { color: #fff; background-color: var(--accent-color); }
 /* awards */
 .award-item { display: flex; align-items: baseline; margin-bottom: 0.35rem; }
 .award-year { font-weight: 500; color: var(--accent-color); flex: 0 0 140px; }
@@ -198,6 +204,7 @@ footer {
           <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/11541221" target="_blank">mmGuard: A Countermeasure against Physical Adversarial Attacks on mmWave Radar Sensing</a></div>
           <div class="pub-authors"><strong>R. Geng</strong>, D. Zhang, Y. Li, J. Wang, Q. Liang, R. Zhang, X. Xu, Z. Lu, Y. Hu, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">TIFS 2026</span></div>
+          <div class="pub-links"><a href="https://github.com/ruixv/mmGuard" target="_blank">[Dataset]</a><a href="https://github.com/ruixv/mmGuard" target="_blank">[Code]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -207,6 +214,7 @@ footer {
           <div class="pub-authors"><strong>R. Geng</strong>*, J. Wang*, Y. Yuan, F. Zhan, T. Zhang, R. Zhang, P. Huang, D. Zhang, J. Chen, Y. Hu, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">COMST 2025</span>
             <a class="pub-award" href="https://www.comsoc.org/publications/best-readings/wireless-information-forensics-security" target="_blank">★ ComSoc Best Readings</a></div>
+          <div class="pub-links"><a href="https://intelligent-perception-lab.github.io/Awesome-WS-Security/" target="_blank">[Project Page]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -223,6 +231,7 @@ footer {
           <div class="pub-title"><a href="https://www.nature.com/articles/s41467-025-59482-y" target="_blank">Atrial Fibrillation Detection via Contactless Radio Monitoring and Knowledge Transfer</a></div>
           <div class="pub-authors">Y. Yuan*, J. Chen*, D. Zhang, <strong>R. Geng</strong>, H. Gong, G. Xu, Y. Pu, Z. Lu, Y. Hu, D. Zhang, L. Ma, Q. Sun, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">Nature Comm. 2025</span></div>
+          <div class="pub-links"><a href="https://github.com/yyuqin/Atrial-Fibrillation-Detection" target="_blank">[Code]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -239,6 +248,7 @@ footer {
           <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10811818" target="_blank">Passive Non-Line-of-Sight Imaging with Light Transport Modulation</a></div>
           <div class="pub-authors">J. Zhang, <strong>R. Geng</strong>, X. Du, Y. Chen, H. Li, Y. Hu</div>
           <div class="pub-venue-container"><span class="pub-venue">TIP 2025</span></div>
+          <div class="pub-links"><a href="https://github.com/JerryOctopus/NLOS-LTM" target="_blank">[Code]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -255,6 +265,7 @@ footer {
           <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10794585" target="_blank">DREAM-PCD: Deep Reconstruction and Enhancement of mmWave Radar Point Cloud</a></div>
           <div class="pub-authors"><strong>R. Geng</strong>, Y. Li, D. Zhang, J. Wu, Y. Gao, Y. Hu, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">TIP 2024</span></div>
+          <div class="pub-links"><a href="https://github.com/ruixv/RadarEyes" target="_blank">[Dataset]</a><a href="https://github.com/ruixv/DREAM-PCD" target="_blank">[Code]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -263,6 +274,7 @@ footer {
           <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10740682" target="_blank">IFNet: Deep Imaging and Focusing for Handheld SAR With Millimeter-Wave Signals</a></div>
           <div class="pub-authors">Y. Li, D. Zhang, <strong>R. Geng</strong>, J. Wu, Y. Hu, Q. Sun, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">TMC 2024</span></div>
+          <div class="pub-links"><a href="https://github.com/leeyadong/IFNet" target="_blank">[Code]</a></div>
         </div>
       </div>
       <div class="publication-item">
@@ -271,14 +283,17 @@ footer {
           <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9623377" target="_blank">Passive Non-Line-of-Sight Imaging Using Optimal Transport</a></div>
           <div class="pub-authors"><strong>R. Geng</strong>, Y. Hu, Z. Lu, C. Yu, H. Li, H. Zhang, Y. Chen</div>
           <div class="pub-venue-container"><span class="pub-venue">TIP 2022</span></div>
+          <div class="pub-links"><a href="https://github.com/ruixv/NLOS-OT" target="_blank">[Dataset]</a><a href="https://github.com/ruixv/NLOS-OT" target="_blank">[Code]</a></div>
         </div>
       </div>
     </section>
 
     <section id="awards">
       <h2>Awards</h2>
-      <div class="award-item"><span class="award-year">2017, 2018, 2025</span><div class="award-desc">National Scholarship <small>Top 3% nationally, Ministry of Education of China</small></div></div>
-      <div class="award-item"><span class="award-year">2019</span><div class="award-desc">Outstanding Graduate of Sichuan Province <small>Top 3%, awarded for academic excellence</small></div></div>
+      <div class="award-item"><span class="award-year">2025</span><div class="award-desc">National Scholarship <small>&lt;1% in China</small></div></div>
+      <div class="award-item"><span class="award-year">2019</span><div class="award-desc">Outstanding Graduate of Sichuan Province <small>Top 3% in Sichuan Province</small></div></div>
+      <div class="award-item"><span class="award-year">2018</span><div class="award-desc">National Scholarship <small>&lt;1% in China</small></div></div>
+      <div class="award-item"><span class="award-year">2017</span><div class="award-desc">National Scholarship <small>&lt;1% in China</small></div></div>
     </section>
 
     <section id="services">
